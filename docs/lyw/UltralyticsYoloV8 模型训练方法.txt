@@ -40,6 +40,7 @@ yolo train data=./datasets/ztl_multi_goods_rec_dataset_v01/ztl_multi_goods_rec_d
 yolo predict model=runs/detect/train11/weights/best.pt source=mytrain/train/images/000132_2_callphone1_12.png
 yolo predict model=goods_rec.pt source='./ultralytics/assets/test_multi_goods_video_10.mp4'
 yolo predict model=goods_rec.pt source='./ultralytics/assets/test_multi_goods_video_10.mp4' device='cpu' save_txt=true save_conf=true save=true
+yolo predict model=./runs/obb/train/weights/best.pt source=./datasets/test_data/test_ztl_multi_goods_rec_image/A006_1_65.png
 
 根据自定义数据集进行训练和推理
 yolo obb train data=./datasets/zxzj_v01/zxzj_dataset_v01.yaml model=./demo/goods_rec.pt epochs=500 imgsz=640
