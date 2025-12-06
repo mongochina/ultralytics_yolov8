@@ -34,6 +34,7 @@ yolo streamlit-predict model=runs/detect/train14/weights/best.pt source=/dev/vid
 运行训练命令
 yolo train data=ultralytics/data/myTrain.yaml model=yolov8n.pt epochs=500 imgsz=640
 yolo train data=ultralytics/cfg/datasets model=yolov8n.pt epochs=500 imgsz=640
+yolo train data=./datasets/ztl_multi_goods_rec_dataset_v01/ztl_multi_goods_rec_dataset_v01.yaml model=yolov8m-obb.pt epochs=1 imgsz=640
 
 推理测试
 yolo predict model=runs/detect/train11/weights/best.pt source=mytrain/train/images/000132_2_callphone1_12.png
