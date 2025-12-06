@@ -1,0 +1,77 @@
+conda create -n ultralytics_yolov8 python=3.10
+conda activate ultralytics_yolov8
+
+pip install onnx==1.12.0
+pip install onnxslim onnxruntime
+pip install opencv-python
+
+https://pytorch.org/get-started/locally/
+pip3 install torch torchvision --index-url https://download.pytorch.org/whl/cu130
+#####################################################
+安装cuda toolkit
+wget https://developer.download.nvidia.com/compute/cuda/13.0.2/local_installers/cuda_13.0.2_580.95.05_linux.run
+sudo sh cuda_13.0.2_580.95.05_linux.run
+
+PATH includes /usr/local/cuda-13.0/bin
+LD_LIBRARY_PATH includes /usr/local/cuda-13.0/lib64, or, add /usr/local/cuda-13.0/lib64 to /etc/ld.so.conf and run ldconfig as root
+
+nvcc: NVIDIA (R) Cuda compiler driver
+nvcc --version
+
+conda install pytorch torchvision torchaudio pytorch-cuda=13.0 -c pytorch -c nvidia
+torch.cuda.is_available()
+#####################################################
+安装训练环境(安装 ultralytics)
+git clone https://github.com/airockchip/ultralytics_yolov8.git
+pip install ultralytics
+#####################################################
+图片推理命令格式
+yolo predict model=demo/yolov8n.pt source=ultralytics/assets/bus.jpg
+
+streamlit 推流器推理+推流命令格式
+yolo streamlit-predict model=runs/detect/train14/weights/best.pt source=/dev/video0
+
+运行训练命令
+yolo train data=ultralytics/data/myTrain.yaml model=yolov8n.pt epochs=500 imgsz=640
+yolo train data=ultralytics/cfg/datasets model=yolov8n.pt epochs=500 imgsz=640
+
+推理测试
+yolo predict model=runs/detect/train11/weights/best.pt source=mytrain/train/images/000132_2_callphone1_12.png
+yolo predict model=goods_rec.pt source='./ultralytics/assets/test_multi_goods_video_10.mp4'
+yolo predict model=goods_rec.pt source='./ultralytics/assets/test_multi_goods_video_10.mp4' device='cpu' save_txt=true save_conf=true save=true
+
+根据自定义数据集进行训练和推理
+yolo obb train data=./datasets/zxzj_v01/zxzj_dataset_v01.yaml model=./demo/goods_rec.pt epochs=500 imgsz=640
+yolo obb train data=./datasets/zxzj_v02/zxzj_dataset_v02.yaml model=./demo/goods_rec.pt epochs=500 imgsz=640
+
+yolo predict model=./runs/obb/train3/weights/best.pt source='./ultralytics/assets/hongniu-1.mp4'
+yolo predict model=./runs/obb/train3/weights/best.pt source='./ultralytics/assets/hongniu-multi.jpg' save_frames=true
+yolo task=detect mode=predict model=yolov8n.pt conf=0.25 source='https://media.roboflow.com/notebooks/examples/dog.jpeg'
+#####################################################
+区域计数：
+python3 yolov8_region_counter.py --source=../../ultralytics/assets/goods_01.mp4
+python3 yolov8_region_counter.py --source=../../ultralytics/assets/goods_01.mp4 --weights=../../demo/goods_rec.pt --save-img --view-img
+python yolov8_region_counter.py --source ../../ultralytics/assets/goods_01.mp4 --weights ../../demo/goods_rec.pt --save-img --view-img
+
+# Display model information (optional)
+model.info()
+
+# Benchmark on GPU
+benchmark(model="yolov8n.pt", data="coco8.yaml", imgsz=640, half=False, device=0)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,4 @@
+Yolox 旷视目标检测模型板端推理
+https://github.com/Megvii-BaseDetection/YOLOX
+https://blog.csdn.net/qq_28384023/article/details/121930393
+https://developer.baidu.com/article/details/3331264

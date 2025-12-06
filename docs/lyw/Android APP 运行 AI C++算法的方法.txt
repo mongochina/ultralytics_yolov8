@@ -1,0 +1,5 @@
+通过 Android 的 JNI（Java Native 本地 Interface） 集成 librknnrt.so 或OpenCV 等第三方库和 C++函数，实现 Android APP 上使用摄像头和运行 AI 算法。
+
+安装 Android Studio 集成开发环境
+
+用 Android studio 构建 YoloV5 c++开发工程

@@ -1,0 +1,17 @@
+conda create -n RKLLM-Toolkit python=3.8
+
+conda activate RKLLM-Toolkit
+
+pip3 install rkllm-toolkit/packages/rkllm_toolkit-1.1.1-cp38-cp38-linux_x86_64.whl
+
+git clone https://github.com/airockchip/rknn-llm.git
+
+
+rkllm.load_huggingface()
+rkllm.load_gguf()
+rkllm.build()
+rkllm.export_rkllm()
+
+
+
+from rkllm.api import RKLLM

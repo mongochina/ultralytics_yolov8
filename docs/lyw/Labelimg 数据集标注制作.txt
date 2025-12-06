@@ -1,0 +1,19 @@
+conda create -n rolabelimg python=3.8
+
+conda activate rolabelimg
+
+安装读取图片所需的库
+pip install --upgrade pillow
+
+
+将这个 VOC格式的 xml 文件批量转换成 YOLO 格式的 txt 文件
+python run_obb_xml_to_txt.py
+
+将 rolabelimg 生成的 XML 文件转换为 DOTA 格式的 XML 文件
+将 DOTA 格式的 XML 文件转换为 DOTA 格式的 TXT 文件。
+将 DOTA 格式的 TXT 文件转换为 YOLOv8 OBB 格式的 TXT 文件。
+
+save_txt=true 可以将推理框出的坐标和类别名称保存下来在对应的目录下
+
+
+yolo train data=./datasets/zxzj_v01/zxzj_dataset_v01.yaml model=goods_rec.pt epochs=500 imgsz=640

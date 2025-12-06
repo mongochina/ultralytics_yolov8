@@ -1,0 +1,13 @@
+工程地址：https://github.com/airockchip/ultralytics_yolo11
+
+conda create -n ultralytics_yolo11 python=3.8
+
+conda activate ultralytics_yolo11
+
+pip install -U ultralytics
+
+启动训练
+yolo obb train data=ultralytics/data/ztl_multi_goods_rec_dataset_3.yaml model=yolo11s-obb.pt epochs=500 imgsz=640
+
+在 PC 端推理测试验证
+yolo obb predict model=runs/obb/train7/weights/best.pt source=test.jpg

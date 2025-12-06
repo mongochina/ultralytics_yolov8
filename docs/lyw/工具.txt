@@ -1,0 +1,78 @@
+linux命令行代理设置：
+#export http_proxy="http://192.168.31.10:7897"
+#export https_proxy="http://192.168.31.10:7897"
+
+windows命令行代理设置：
+set http_proxy=http://127.0.0.1:7897
+set https_proxy=http://127.0.0.1:7897
+
+通过 netron.app 分析 AI 模型结构：https://netron.app
+
+英伟达官网驱动下载地址：
+https://www.nvidia.cn/drivers/lookup/
+
+用英伟达的工具，查询到显卡的信息
+#nvidia-smi
+
+#apt install gcc-12 g++-12
+#ln -s gcc-12 gcc
+
+#apt install make 安装编译器
+
+# lspci 查看 PC 端是否识别到显卡
+#lspci | grep VGA
+
+lsmod | grep nouveau
+
+安装 QT 工具和库
+apt install qt5-default qtcreator
+
+tqdm是Python中用于显示进度条的高效工具
+
+下载Android NDK
+https://dl.google.com/android/repository/android-ndk-r19c-linux-x86_64.zip
+
+修改最大可打开文件的数量
+ulimit -HSn 10240
+
+查看板端 NPU 环境方法
+#dmesg | grep -i rknpu
+#cat /sys/kernel/debug/rknpu/version
+
+查看 NPU 占用率
+cat /sys/kernel/debug/rknpu/load
+
+wget https://github.com/erikd/libsndfile/releases/download/v1.0.31/libsndfile-1.0.31.tar.gz
+
+Matplotlib: Visualization with Python
+https://matplotlib.org/
+
+Python+YOLO v8 实战：手把手教你打造专属 AI 视觉目标检测模型
+https://cloud.tencent.com.cn/developer/article/2524588
+
+模型下载地址：
+https://github.com/ultralytics/assets/releases/tag/v8.2.0
+
+要将现有数据集从其他格式（如 COCO 等）转换为 YOLO 格式，请使用 Ultralytics 提供的 JSON2YOLO 工具。
+https://github.com/ultralytics/JSON2YOLO
+
+
+如果 albumentations package 安装后，Ultralytics 会自动应用一组额外的图像增强
+pip install albumentations
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

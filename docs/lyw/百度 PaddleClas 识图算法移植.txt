@@ -1,0 +1,12 @@
+# conda create -n paddleclass python=3.8
+
+conda activate paddleclass
+
+安装 PaddlePaddle
+python -m pip install paddlepaddle==3.0.0b1
+
+安装 PaddleX
+pip install https://paddle-model-ecology.bj.bcebos.com/paddlex/whl/paddlex-3.0.0b1-py3-none-any.whl
+
+通用图像分类
+paddlex --pipeline image_classification --input https://paddle-model-ecology.bj.bcebos.com/paddlex/imgs/demo_image/general_image_classification_001.jpg --device gpu:0

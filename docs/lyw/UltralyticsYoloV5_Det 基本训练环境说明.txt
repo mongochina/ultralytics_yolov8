@@ -1,0 +1,22 @@
+conda create -n ultralytics_yolov5 python=3.8
+
+conda activate ultralytics_yolov5
+
+工程地址：https://github.com/airockchip/yolov5
+
+pip install -r requirements.txt
+
+在 PC 端测试推理，看环境是否已正确安装
+python3 detect.py --weights runs/train/exp/weights/best.pt --source /jwq/test_callphone.jpeg
+
+
+将 yolov5 的*.pt ->*.onnx 转换
+python export.py --rknpu --weight multi_goods_rec_yolov5s.pt
+
+
+要进入 RKNN-Toolkit2 的 conda 环境,将 yolov5 的*.onnx ->*.rknn 转换
+python3 convert.py multi_goods_rec_yolov5s.onnx rk3588 fp multi_goods_rec_yolov5s_rk3588_fp.rknn
+python3 convert.py multi_goods_rec_yolov5s.onnx rk3588 i8 multi_goods_rec_yolov5s_rk3588_int8.rknn
+
+在板端进行推理测试
+./rknn_yolov5_demo /jwq/yolov5s_rk3588_fp.rknn /jwq/10_1.jpg

@@ -1,0 +1,11 @@
+1、模型编译：YoloV5_Det 模型板端 C++ 编译（板端）：
+./build-linux.sh -t rk3588 -a aarch64 -d yolov5
+
+2、模型转换：YoloV5_Seg 的 RKNN 模型量化转换（PC 端）
+python convert.py yolov5m-seg.onnx rk3588 fp yolov5m-fp-seg.rknn
+注意：fp=float point,i8=8位整型
+因为模型转换的工具和环境只有 PC 端的，没有板端的，所以模型转换只能在 PC 端进行，
+不能在板端做模型转换。
+
+3、推理（板端）：
+./rknn_yolov5_demo model/yolov5m_fp_det.rknn model/bus.jpg

@@ -1,0 +1,27 @@
+conda create -n RKNN-Toolkit2 python=3.10
+
+conda activate RKNN-Toolkit2
+
+pip3 install -r rknn-toolkit2/packages/requirements_cp38-2.2.0.txt
+pip3 install rknn-toolkit2/packages/rknn_toolkit2-2.2.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+
+测试命令：from rknn.api import rknn
+
+pip install PyYAML
+
+pip3 install torchvision torch==2.1.0
+
+pip3 install pycocotools
+pip3 install Polygon
+pip install shapely
+
+库路径：
+/root/anaconda3/envs/RKNN-Toolkit2/lib/python3.8/site-packages/rknn
+
+python3 convert.py /root/aistudio/sdk/ZTL_Smart_AI_SDK/rknn_model_zoo/pretrain_models/ztl_multi_goods_rec_yolov8m_obb_rk3588_fp_v01.onnx rk3588 fp ztl_multi_goods_rec_yolov8m_obb_rk3588_fp_v01.rknn
+python convert.py ../model/yolov8n-obb.onnx rk3588
+
+
+import onnx
+model = onnx.load('../model/yolov8n-obb.onnx')
+onnx.checker.check_model(model) 

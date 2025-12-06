@@ -1,0 +1,56 @@
+from ultralytics.data.annotator import auto_annotate
+
+auto_annotate(
+	data="./datasets/zxzj_v03/temp",
+	det_model="./demo/yolov8n.pt",
+	sam_model="./demo/mobile_sam.pt",
+	output_dir="./datasets/zxzj_v03/save_labels",
+)
+#####################################################
+from ultralytics.data.converter import convert_coco
+
+convert_coco(
+    "./datasets/zxzj_v04/labels",
+    use_segments=False,
+    use_keypoints=False,
+    cls91to80=True,
+)
+#####################################################
+from pathlib import Path
+
+from ultralytics.data.utils import compress_one_image
+
+for f in Path("./datasets/zxzj_v04/images").rglob("*.jpg"):
+    compress_one_image(f)
+
+#####################################################
+from ultralytics.data.utils import autosplit
+
+autosplit(
+    path="./datasets/zxzj_v04/images",
+    weights=(0.9, 0.1, 0.0),  # (train, validation, test) fractional splits
+    annotated_only=False,  # split only images with annotation file when True
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

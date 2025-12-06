@@ -1,0 +1,11 @@
+OpenVINO，全称 Open Visual Inference and Neural Network Optimization，即开放式视觉推理和神经网络优化，是英特尔基于自身硬件平台开发的开源工具套件
+
+
+
+
+
+
+
+
+
+
